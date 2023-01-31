@@ -1,19 +1,26 @@
-const input_one = document.querySelector('.input-one');
-const input_two = document.querySelector('.input-two');
-const btn = document.querySelector('.btn');
+const inputOne = document.querySelector('.input-one');
+const inputTwo = document.querySelector('.input-two');
+const btnOne = document.querySelector('.btn-one');
+const btnTwo = document.querySelector('.btn-two');
 let numb = document.querySelector('.numb');
 
 
-btn.addEventListener("click", ()=> findSmaller(input_one.value, input_two.value));
+btnOne.addEventListener("click", ()=> findSmaller(inputOne.value, inputTwo.value));
 
-const findSmaller = (a, b) => {
-    if(a>b) {
-        numb.innerHTML = b;
-    }else if(a<b) {
-        numb.innerHTML = a;
+btnTwo.addEventListener("click", ()=> clean());
+
+const findSmaller = (numbOne, numbTwo) => {
+    if(numbOne > numbTwo) {
+        numb.innerHTML = numbTwo;
+    }else if(numbOne < numbTwo) {
+        numb.innerHTML = numbOne;
     }else {
         numb.innerHTML = 'Числа равны';
     }
 }
 
-//console.log(findSmaller(8, -8));
+const clean = () => {
+    inputOne.value = '';
+    inputTwo.value = '';
+    numb.innerHTML = '';
+}
